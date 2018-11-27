@@ -25,6 +25,13 @@
             android:name="com.dahai.demo.video.PlayerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme.Fullscreen"/>
+        <activity android:name=".photoview.ImageListActivity" />
+        <activity android:name=".photoview.ImageShowingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".photoview2.GalleryActivity"
+            android:theme="@style/AppTheme.Fullscreen"/>
     </application>
 
 </manifest>

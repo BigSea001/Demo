@@ -24,13 +24,13 @@ public class SwipeToDismissTouchListener implements View.OnTouchListener {
                 view.getContext().getResources().getDisplayMetrics().heightPixels * 0.5f);
     }
 
-    SwipeToDismissTouchListener(Callback listener, int touchSlop, float maxTranslate) {
+    private SwipeToDismissTouchListener(Callback listener, int touchSlop, float maxTranslate) {
         // If swiping more than 20% of the max distance, trigger the dismiss listener.
         this(listener, touchSlop, maxTranslate, maxTranslate * 0.2f);
     }
 
-    SwipeToDismissTouchListener(Callback listener, int touchSlop, float maxTranslate,
-            float closeThreshold) {
+    private SwipeToDismissTouchListener(Callback listener, int touchSlop, float maxTranslate,
+                                        float closeThreshold) {
         setCallback(listener);
         this.touchSlop = touchSlop;
         this.maxTranslate = maxTranslate;
@@ -57,7 +57,7 @@ public class SwipeToDismissTouchListener implements View.OnTouchListener {
      * @param event The incoming motion event.
      * @return true if the motion event results in the view closing, false otherwise.
      */
-    boolean handleTouchEvent(View swipeableView, MotionEvent event) {
+    private boolean handleTouchEvent(View swipeableView, MotionEvent event) {
         boolean viewClosed = false;
 
         switch (event.getActionMasked()) {
@@ -112,7 +112,7 @@ public class SwipeToDismissTouchListener implements View.OnTouchListener {
      * @param initialDeltaY the delta between the initial Y position and the current Y position.
      * @return if the scroll has moved far enough in the proper direction to start tracking a swipe to dismiss.
      */
-    boolean hasMovedEnoughInProperYDirection(float initialDeltaY) {
+    private boolean hasMovedEnoughInProperYDirection(float initialDeltaY) {
         return Math.abs(initialDeltaY) > touchSlop;
     }
 
@@ -121,18 +121,18 @@ public class SwipeToDismissTouchListener implements View.OnTouchListener {
      * @param deltaY the delta between the last Y position and the current Y position.
      * @return if the swipe gesture has moved more in the Y direction than the X direction.
      */
-    boolean hasMovedMoreInYDirectionThanX(float deltaX, float deltaY) {
+    private boolean hasMovedMoreInYDirectionThanX(float deltaX, float deltaY) {
         return Math.abs(deltaY) > Math.abs(deltaX);
     }
 
     /**
      * @return if we are currently tracking a swipe to dismiss gesture.
      */
-    boolean isMoving() {
+    private boolean isMoving() {
         return isMoving;
     }
 
-    boolean isValidPointer(MotionEvent event) {
+    private boolean isValidPointer(MotionEvent event) {
         return pointerIndex >= 0 && event.getPointerCount() == 1;
     }
 
@@ -141,7 +141,7 @@ public class SwipeToDismissTouchListener implements View.OnTouchListener {
      *
      * @return true if the view was closed, otherwise false.
      */
-    boolean settleOrCloseView(View swipeableView) {
+    private boolean settleOrCloseView(View swipeableView) {
         final float currentY = swipeableView.getTranslationY();
         if (currentY > closeThreshold || currentY < -closeThreshold) {
             if (callback != null) {
@@ -155,7 +155,7 @@ public class SwipeToDismissTouchListener implements View.OnTouchListener {
         }
     }
 
-    void settleView(View swipeableView) {
+    private void settleView(View swipeableView) {
         if (swipeableView.getTranslationY() != 0) {
             final ObjectAnimator animator =
                     ObjectAnimator.ofFloat(swipeableView, View.TRANSLATION_Y, 0).setDuration(100);
@@ -172,7 +172,7 @@ public class SwipeToDismissTouchListener implements View.OnTouchListener {
         }
     }
 
-    void moveView(View swipeableView, float deltaY) {
+    private void moveView(View swipeableView, float deltaY) {
         final float currentY = swipeableView.getTranslationY();
         final float deltaWithTension = (float) (deltaY * calculateTension(currentY));
         final float targetY = bound(currentY + deltaWithTension);
@@ -182,7 +182,7 @@ public class SwipeToDismissTouchListener implements View.OnTouchListener {
         }
     }
 
-    double calculateTension(float targetY) {
+    private double calculateTension(float targetY) {
         // energy = 1 / 2 * k * x^2
         // but since we only want a coefficient from 0 to 1 we can ignore the constants.
         final float distance = Math.abs(targetY);
@@ -193,7 +193,7 @@ public class SwipeToDismissTouchListener implements View.OnTouchListener {
         return tensionCoeff;
     }
 
-    float bound(float y) {
+    private float bound(float y) {
         if (y < -maxTranslate) {
             return -maxTranslate;
         } else if (y > maxTranslate) {
@@ -202,7 +202,7 @@ public class SwipeToDismissTouchListener implements View.OnTouchListener {
         return y;
     }
 
-    public void setCallback(Callback listener) {
+    private void setCallback(Callback listener) {
         this.callback = listener;
     }
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ScanDemo</string>
+    <string name="image_showing_transition_name">image_showing_transition_name</string>
 </resources>
