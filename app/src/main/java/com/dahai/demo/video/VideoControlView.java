@@ -1,20 +1,3 @@
-/*
- * Copyright (C) 2015 Twitter, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
 package com.dahai.demo.video;
 
 import android.annotation.SuppressLint;
@@ -87,10 +70,10 @@ public class VideoControlView extends FrameLayout {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.video_control, this);
 
-        stateControl = findViewById(R.id.tw__state_control);
-        currentTime = findViewById(R.id.tw__current_time);
-        duration = findViewById(R.id.tw__duration);
-        seekBar = findViewById(R.id.tw__progress);
+        stateControl = findViewById(R.id.video_state_control);
+        currentTime = findViewById(R.id.video_current_time);
+        duration = findViewById(R.id.video_duration);
+        seekBar = findViewById(R.id.video_progress);
 
         seekBar.setMax((int) PROGRESS_BAR_TICKS);
         seekBar.setOnSeekBarChangeListener(createProgressChangeListener());

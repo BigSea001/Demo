@@ -5,7 +5,7 @@
     android:layout_height="32dp">
 
     <ImageButton
-        android:id="@+id/tw__state_control"
+        android:id="@+id/video_state_control"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -16,30 +16,30 @@
         android:contentDescription="暂停"/>
 
     <TextView
-        android:id="@+id/tw__current_time"
+        android:id="@+id/video_current_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/tw__state_control"
+        android:layout_toRightOf="@id/video_state_control"
         android:textColor="@android:color/white"
         android:textSize="13sp"
         tools:text="0:01"/>
 
     <SeekBar
         tools:ignore="UnusedAttribute"
-        android:id="@+id/tw__progress"
+        android:id="@+id/video_progress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/tw__duration"
-        android:layout_toRightOf="@+id/tw__current_time"
+        android:layout_toLeftOf="@+id/video_duration"
+        android:layout_toRightOf="@+id/video_current_time"
         android:background="@null"
         android:splitTrack="false"
-        android:progressDrawable="@drawable/tw__video_seekbar"
-        android:thumb="@drawable/tw__seekbar_thumb"/>
+        android:progressDrawable="@drawable/video_seekbar"
+        android:thumb="@drawable/video_seekbar_thumb"/>
 
     <TextView
-        android:id="@+id/tw__duration"
+        android:id="@+id/video_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
