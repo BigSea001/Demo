@@ -5,12 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.dahai.demo.photoview.ImageListActivity;
 import com.dahai.demo.photoview2.GalleryActivity;
 import com.dahai.demo.photoview2.MediaEntity;
-import com.dahai.demo.photoview2.VideoInfo;
 import com.dahai.demo.video.IntentUtils;
 import com.dahai.demo.video.PlayerActivity;
+import com.dahai.demo.expandablelayout.ExpandableActivity;
 
 import java.util.ArrayList;
 
@@ -56,5 +55,9 @@ public class MainActivity extends AppCompatActivity {
         final GalleryActivity.GalleryItem item = new GalleryActivity.GalleryItem(0, entities);
         intent.putExtra(GalleryActivity.GALLERY_ITEM, item);
         IntentUtils.safeStartActivity(this, intent);
+    }
+
+    public void expandable(View view) {
+        startActivity(new Intent(this,ExpandableActivity.class));
     }
 }

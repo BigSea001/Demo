@@ -32,6 +32,8 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".photoview2.GalleryActivity"
             android:theme="@style/AppTheme.Fullscreen"/>
+        <activity android:name=".expandablelayout.ExpandableActivity" />
+        <activity android:name=".slidingdrawer.SlidingDrawerActivity" />
     </application>
 
 </manifest>
