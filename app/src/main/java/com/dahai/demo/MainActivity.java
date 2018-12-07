@@ -7,9 +7,9 @@ import android.view.View;
 
 import com.dahai.demo.photoview2.GalleryActivity;
 import com.dahai.demo.photoview2.MediaEntity;
+import com.dahai.demo.viewpager.AActivity;
 import com.dahai.demo.video.IntentUtils;
 import com.dahai.demo.video.PlayerActivity;
-import com.dahai.demo.expandablelayout.ExpandableActivity;
 
 import java.util.ArrayList;
 
@@ -58,6 +58,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void expandable(View view) {
-        startActivity(new Intent(this,ExpandableActivity.class));
+        startActivity(new Intent(this,AActivity.class));
     }
 }
